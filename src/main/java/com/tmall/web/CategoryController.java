@@ -16,4 +16,5 @@ public class CategoryController {
     public List<Category> list() throws Exception {
         return categoryService.list();
     }
+
 }

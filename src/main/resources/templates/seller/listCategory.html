@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 
-<head th:include="include/admin/adminHeader::html('分类管理')" ></head>
+<head th:include="include/seller/sellerHeader::html('分类管理')" ></head>
 <body>
-<div th:replace="include/admin/adminNavigator::html" ></div>
+<div th:replace="include/seller/sellerNavigator::html" ></div>
 <script>
     $(function(){
         var data4Vue = {
@@ -41,9 +41,7 @@
                 <th>ID</th>
                 <th>Img</th>
                 <th>Category_name</th>
-                <th>Manage attributes</th>
                 <th>Manage products</th>
-                <th>Edit</th>
                 <th>Delete</th>
             </tr>
             </thead>
@@ -56,15 +54,11 @@
                 <td>
                     {{bean.name}}
                 </td>
+
                 <td>
-                    <a :href="'admin_property_list?cid=' + bean.id "><span class="glyphicon glyphicon-th-list"></span></a>
+                    <a :href="'seller_product_list?cid=' + bean.id "><span class="glyphicon glyphicon-shopping-cart"></span></a>
                 </td>
-                <td>
-                    <a :href="'admin_product_list?cid=' + bean.id "><span class="glyphicon glyphicon-shopping-cart"></span></a>
-                </td>
-                <td>
-                    <a :href="'admin_category_edit?id=' + bean.id "><span class="glyphicon glyphicon-edit"></span></a>
-                </td>
+
                 <td>
                     <a href="#nowhere"  @click="deleteBean(bean.id)"><span class="   glyphicon glyphicon-trash"></span></a>
                 </td>
@@ -73,6 +67,6 @@
         </table>
     </div>
 </div>
-<div th:replace="include/admin/adminFooter::html" ></div>
+<div th:replace="include/seller/sellerFooter::html" ></div>
 </body>
 </html>
