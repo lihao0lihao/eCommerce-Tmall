@@ -32,4 +32,8 @@ public class CategoryService {
         return rt;
         //return categoryDAO.findAll(sort);
     }
+
+    public void add(Category bean) {
+        categoryDAO.save(bean);
+    }
 }
