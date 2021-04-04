@@ -2,12 +2,22 @@ package com.tmall.web;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class AdminPageController {
     @GetMapping(value="/admin")
     public String admin(){
-        return "redirect:admin_category_list";
+        return "admin/admin_login";
+    }
+
+    @PostMapping(value="/admin_login")
+    public String admin_login(@RequestParam("name") String name,@RequestParam("password") String password)
+    {
+        if("admin".equals(name)&&"root".equals(password))
+            return  "redirect:admin_category_list";
+        else return "admin/admin_login";
     }
 
     @GetMapping(value="/admin_category_list")
