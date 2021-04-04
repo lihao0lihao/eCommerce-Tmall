@@ -50,7 +50,6 @@
                 <th>Img</th>
                 <th>Category_name</th>
                 <th>Manage products</th>
-                <th>Delete</th>
             </tr>
             </thead>
             <tbody>
@@ -67,9 +66,6 @@
                     <a :href="'seller_product_list?cid=' + bean.id "><span class="glyphicon glyphicon-shopping-cart"></span></a>
                 </td>
 
-                <td>
-                    <a href="#nowhere"  @click="deleteBean(bean.id)"><span class="   glyphicon glyphicon-trash"></span></a>
-                </td>
             </tr>
             </tbody>
         </table>
