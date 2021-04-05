@@ -9,6 +9,13 @@
     <span th:if="${null!=session.user}">
 		<a href="login" th:text="${session.user.name}"></a>
 		<a href="forelogout" >Exit</a>
+		<a th:if="${2==session.user.user_type}">
+			<a href="seller">Seller-back-end</a>
+		</a>
+	</span>
+	<!--
+	<span th:if="${2==session.user.user_type}">
+		<a herf="login">Seller-back-end</a>
 	</span>
 
 	<!-- using session.user.type can show 'seller into back-end'  -->
