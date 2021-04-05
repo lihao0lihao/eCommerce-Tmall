@@ -51,4 +51,8 @@ public class PropertyService {
 
     }
 
+    public List<Property> listByCategory(Category category){
+        return propertyDAO.findByCategory(category);
+    }
+
 }
