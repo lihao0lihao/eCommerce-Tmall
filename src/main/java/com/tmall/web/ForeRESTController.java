@@ -1,11 +1,14 @@
 package com.tmall.web;
 
 import com.tmall.pojo.Category;
+import com.tmall.pojo.User;
 import com.tmall.service.CategoryService;
-//import com.tmall.service.ProductService;
+import com.tmall.service.ProductService;
+import com.tmall.service.UserService;
+import com.tmall.util.Result;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.util.HtmlUtils;
 
 import java.util.List;
 
@@ -13,8 +16,10 @@ import java.util.List;
 public class ForeRESTController {
     @Autowired
     CategoryService categoryService;
-    //@Autowired
-    //ProductService productService;
+    @Autowired
+    ProductService productService;
+    @Autowired
+    UserService userService;
 
     @GetMapping("/forehome")
     public Object home() {
@@ -25,4 +30,25 @@ public class ForeRESTController {
         return cs;
     }
 
+    @PostMapping("/foreregister")
+    public Object register(@RequestBody User user) {
+        String name =  user.getName();
+        String password = user.getPassword();
+        int type = user.getUser_type();
+        name = HtmlUtils.htmlEscape(name);
+        user.setName(name);
+        boolean exist = userService.isExist(name);
+
+        if(exist){
+            String message ="The user name is already in use and cannot be used";
+            return Result.fail(message);
+        }
+
+        user.setPassword(password);
+        user.setUser_type(type);
+
+        userService.add(user);
+
+        return Result.success();
+    }
 }

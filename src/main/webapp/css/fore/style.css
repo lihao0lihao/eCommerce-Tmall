@@ -2157,6 +2157,16 @@ td.registerTableRightTD {
 	text-align: left;
 }
 
+td.registerUserTypeLeft {
+	width: 300px;
+	text-align: right;
+}
+
+td.registerUserTypeRight {
+	width: 50px;
+	text-align: left;
+}
+
 td.registerTip {
 	font-weight: bold;
 }
@@ -2294,4 +2304,3 @@ table td{
 input{
 	outline: none;
 }
-
