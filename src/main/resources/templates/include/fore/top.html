@@ -10,7 +10,7 @@
 		<a href="login" th:text="${session.user.name}"></a>
 		<a href="forelogout" >Exit</a>
 		<a th:if="${2==session.user.user_type}">
-			<a href="seller">Seller-back-end</a>
+			<a href="seller?sellerId=testseller2">Seller-back-end</a>
 		</a>
 	</span>
 	<!--

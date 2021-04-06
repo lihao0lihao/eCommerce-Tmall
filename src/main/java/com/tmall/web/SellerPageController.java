@@ -9,8 +9,15 @@ public class SellerPageController {
     public String admin(){
         return "redirect:seller_category_list";
     }
+
     @GetMapping(value="/seller_category_list")
     public String listCategory(){
         return "seller/listCategory";
+    }
+
+    @GetMapping(value="/seller_order_list")
+    public String listOrder(){
+        return "seller/listOrder";
+
     }
 }
