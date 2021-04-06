@@ -21,7 +21,7 @@ public class test {
         )
         {
             for (int i = 1; i <=10 ; i++) {
-                String sqlFormat = "insert into test_table values (%d, '测试分类%d')";
+                String sqlFormat = "insert into category values (%d, 'test%d')";
                 String sql = String.format(sqlFormat, i, i);
                 s.execute(sql);
             }
